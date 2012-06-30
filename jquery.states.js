@@ -62,18 +62,20 @@
 	];
 
 	$.fn.loadStates = function(selected) {
-		if (this.is('select')) {
-			this.append('<option value="">Choose...</option>');
+    if (this.length > 0) {
+      if (this.is('select')) {
+        this.append('<option value="">Choose...</option>');
 
-			for (var i = 0; i < States.length; i++) {
-				var s = '';
-				if (selected == States[i].code) s = 'selected ';
-				this.append('<option ' + s + 'value="' + States[i].code + '">' + States[i].name + '</option>');
-			}
-		}
-		else {
-			throw "You can only load states into a <select> element.";
-		}
-	};
+        for (var i = 0; i < States.length; i++) {
+          var s = '';
+          if (selected == States[i].code) s = 'selected ';
+          this.append('<option ' + s + 'value="' + States[i].code + '">' + States[i].name + '</option>');
+        }
+      }
+      else {
+        throw "You can only load states into a <select> element.";
+      }
+    }
+  };
 	
 })(jQuery);
